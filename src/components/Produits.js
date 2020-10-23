@@ -91,7 +91,7 @@ const ProduitWrapper = styled.div`
     bottom: 0;
     right: 0;
     padding: 0.2rem 0.4rem;
-    background: black;
+    background: #454545;
     color: var(--mainWhite);
     border: none;
     font-size: 1.4rem;

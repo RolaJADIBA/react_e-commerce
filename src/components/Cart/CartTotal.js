@@ -13,16 +13,16 @@ export default function CartTotal({ value }) {
                             <button className="btn btn-outline-danger text-uppercase mb-3 px-5" type="button" onClick={()=>clearCart()}>Vider le panier</button>
                         </Link>
                         <h5>
-                            <span className="text-title"> subtotal: </span>
-                             <strong>$ {cartSubTotal}</strong>
+                            <span> subtotal: </span>
+                             <strong className="text-muted">$ {cartSubTotal}</strong>
                         </h5>
                         <h5>
-                            <span className="text-title">tax: </span>
-                            <strong>$ {cartSubTotal}</strong>
+                            <span>tax: </span>
+                            <strong className="text-muted">$ {cartTax}</strong>
                         </h5>
                         <h5>
-                            <span className="text-title">total: </span>
-                            <strong>$ {cartTotal}</strong>
+                            <span>total: </span>
+                            <strong className="text-muted">$ {cartTotal}</strong>
                         </h5>
                     </div>
                 </div>

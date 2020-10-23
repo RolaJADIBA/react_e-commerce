@@ -1,9 +1,9 @@
 :root{
   --mainBlue: #2a2a72;
-  --lightBlue: #009ffd;
-  --mainWhite: #f3f3f3;
+  --lightBlue: #0787d1;
+  --mainWhite: #f8f9fa;
   --mainDark: #232528;
-  --mainYellow: #ffa400;
+  --mainYellow: #dc3545;
 }
 
 body{
@@ -13,7 +13,7 @@ body{
 } 
 
 .text-title{
-  font-family: "Permanent Marker", cursive;
+  font-family: "Oswald", sans-serif !important;
   letter-spacing: 0.3rem;
   text-transform: uppercase;
 }
@@ -53,26 +53,25 @@ body{
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {
   position: absolute;
-  width: 18em;
+  width: 13em;
   background-color: rgb(53, 52, 52);
   color: white;
-  font-family: 'Noto Serif', serif;
-  font-size: 1em;
+  /* font-family: 'Noto Serif', serif; */
+  font-family: "Oswald", sans-serif !important;
+  font-size: 0.9em;
 }
 
 .dropdown-menu li{
   height: 40px;
 }
 
+.dropdown-menu li:hover{
+  text-decoration: none;
+}
+
 .dropdown-submenu {
   position: relative;
   padding: 15px 25px;
-  border-bottom: 2px solid white;
-}
-
-.dropdown-submenu .dropdown-menu li{
-border-bottom: 2px solid white;
-
 }
 
 .dropdown-submenu a{
@@ -80,19 +79,28 @@ border-bottom: 2px solid white;
   text-decoration: none;
 }
 
+.dropdown-submenu a:hover{
+  color:#007cc3 ;
+  text-decoration: none;
+}
+
 .sub{
   padding:15px 25px;
   color: white;
-  border-bottom: 2px solid white;
-
 }
 
 .sub a{
   color: white;
-  font-family: 'Noto Serif', serif;
+  /* font-family: 'Noto Serif', serif; */
   text-decoration: none;
-
+  font-family: "Oswald", sans-serif !important;
 }
+
+.sub a:hover{
+  text-decoration: none;
+  color: #007cc3
+}
+
 .dropdown-submenu>.dropdown-menu {
   top: 0;
   left: 100%;
@@ -144,6 +152,41 @@ border-bottom: 2px solid white;
   border-radius: 6px 0 6px 6px;
 }
 
-/*******************************************************************************************/
+/******************************AVATAR************************************/
+
+.login, .register{
+  position: relative;
+}
+.avatar , .registerImg{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.loginBtn{
+  background-color: #1c8adb !important;
+  color: #fff !important;
+}
+
+/**************************IMAGE**************************/
+
+.image{
+  background: url("./fond.jpg") no-repeat center;
+  background-size: cover;
+  height: 70vh;  
+}
+
+/***********************************************************/
+
+
+
+
+
+
+
+
 
 

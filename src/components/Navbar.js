@@ -6,8 +6,8 @@ export default class Navbar extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                  <Link to="/">
-                    <img class="ml-3" src="../logo.png" height={100} alt="logo"/>
+                  <Link to="/home">
+                    <img className="ml-3" src="../logo.png" height={100} alt="logo"/>
                   </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -18,39 +18,63 @@ export default class Navbar extends Component {
 
                 <div className="nav-item dropdown">
 
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Femme
                     </a>
 
             <ul className="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                 <li className="dropdown-submenu">
-                    <a tabindex="-1" href="#">Vêtements </a>
+                    <a tabindex="-1">Vêtements </a>
                     <ul className="dropdown-menu">
-                    <li><a href="#">Robes</a></li>
-                    <li><a href="#">T-shirts</a></li>
-                    <li><a href="#">Blouses</a></li>
-                    <li><a href="#">Monteaux & Vestes</a></li>
-                    <li><a href="#">Pantalons</a></li>
-                    <li><a href="#">Jupes</a></li>
-                    <li><a href="#">Shorts</a></li>
-                    <li><a href="#">Vêtements de plage</a></li>
+                      <Link to="/robe">
+                        <li><a>Robes</a></li>
+                      </Link>
+                      <Link to="/tshirt">
+                        <li><a>T-shirts</a></li>
+                      </Link>
+                      <Link to="/blouse">
+                        <li><a>Blouses</a></li>
+                      </Link>
+                      <Link to="monteau">
+                        <li><a>Monteaux & Vestes</a></li>
+                      </Link>
+                      <Link to="pantalon">
+                        <li><a>Pantalons</a></li>
+                      </Link>
+                      <Link to="jupe">
+                        <li><a>Jupes</a></li>
+                      </Link>
+                      <Link to="short">
+                        <li><a>Shorts</a></li>
+                      </Link>
+                      <Link to="plage">
+                        <li><a>Vêtements de plage</a></li>
+                      </Link>
                     </ul>
                 </li>
 
                 <li className="dropdown-submenu">
-                    <a tabindex="-1" href="#">Chausseurs & Sacs</a>
+                    <a tabindex="-1">Chausseurs & Sacs</a>
                     <ul className="dropdown-menu">
-                    <li><a href="#">Chausseurs</a></li>
-                    <li><a href="#">Sacs</a></li>
+                      <Link to="/chausseur">
+                        <li><a>Chausseurs</a></li>
+                      </Link>
+                      <Link to="/sac">
+                        <li><a>Sacs</a></li>
+                      </Link>
                     </ul>
                 </li>
 
 
                 <li className="dropdown-submenu">
-                    <a tabindex="-1" href="#">Accessoires</a>
+                    <a tabindex="-1">Accessoires</a>
                     <ul className="dropdown-menu">
-                    <li><a href="#">Bijoux</a></li>
-                    <li><a href="#">Lunettes de soliel</a></li>
+                      <Link to="/bijoux">
+                        <li><a>Bijoux</a></li>
+                      </Link>
+                      <Link to="/lunette">
+                        <li><a>Lunettes de soliel</a></li>
+                      </Link>
                     </ul>
                 </li>
 
@@ -58,33 +82,51 @@ export default class Navbar extends Component {
             </div>
 
 
-    <div class="nav-item dropdown">
+    <div className="nav-item dropdown">
 
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Homme
         </a>
 
-        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+        <ul className="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
               <li class="dropdown-submenu">
-                <a tabindex="-1" href="#">Vêtements</a>
+                <a tabindex="-1">Vêtements</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Chemises</a></li>
-                  <li><a href="#">Pantalons</a></li>
-                  <li><a href="#">T-shirts</a></li>
-                  <li><a href="#">Shorts</a></li>
-                  <li><a href="#">Polos</a></li>
-                  <li><a href="#">Monteaux & Vestes</a></li>
-                  <li><a href="#">Maillots de bain</a></li>
+                  <Link to="/chemise">
+                    <li><a>Chemises</a></li>
+                  </Link>
+                  <Link to="/pantaloneh">
+                    <li><a>Pantalons</a></li>
+                  </Link>
+                  <Link to="/tshirth">
+                    <li><a>T-shirts</a></li>
+                  </Link>
+                  <Link to="/shorth">
+                    <li><a>Shorts</a></li>
+                  </Link>
+                  <Link to="/polo">
+                    <li><a>Polos</a></li>
+                  </Link>
+                  <Link to="/monteauh">
+                    <li><a>Monteaux & Vestes</a></li>
+                  </Link>
+                  <Link to="/maillot">
+                    <li><a>Maillots de bain</a></li>
+                  </Link>
                 </ul>
               </li>
 
               <li class="dropdown sub">
-                <a tabindex="-1" href="#">Chausseurs & Sacs</a>
+                <Link to="/chausseurSac">
+                  <a tabindex="-1">Chausseurs & Sacs</a>
+                </Link>
               </li>
 
 
               <li class="dropdown sub">
-                <a tabindex="-1" href="#">Accessoires</a>
+                <Link to="/accessoire">
+                  <a tabindex="-1" href="#">Accessoires</a>
+                </Link>
               </li>
 
           </ul>
@@ -92,33 +134,47 @@ export default class Navbar extends Component {
 
       <div className="nav-item dropdown">
 
-        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Enfants
         </a>
 
         <ul className="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
               <li className="dropdown-submenu">
-                <a tabindex="-1" href="">Ados</a>
+                <a tabindex="-1">Ados</a>
                 <ul className="dropdown-menu">
-                  <li><a href="#">Fille(7-12 ans)</a></li>
-                  <li><a href="#">Garçon(7-12 ans)</a></li>                  
+                  <Link to="/adosfille">
+                    <li><a >Fille (7-12 ans)</a></li>
+                  </Link>
+                  <Link to="/adosgarçon">
+                    <li><a >Garçon (7-12 ans)</a></li>                  
+                  </Link>
                 </ul>
               </li>
 
               <li className="dropdown-submenu">
                 <a tabindex="-1" href="">Petits</a>
                 <ul className="dropdown-menu">
-                  <li><a href="#">Fille(1-6 ans)</a></li>
-                  <li><a href="#">Garçon(1-6 ans)</a></li>
+                  <Link>
+                  </Link>
+                  <Link to="/petitFille">
+                    <li><a >Fille (1-6 ans)</a></li>
+                  </Link>
+                  <Link to="/petitGarçon">
+                    <li><a >Garçon (1-6 ans)</a></li>
+                  </Link>
                 </ul>
               </li>
 
 
-              <li class="dropdown-submenu">
+              <li className="dropdown-submenu">
                 <a tabindex="-1" href="">Bébé</a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">bébé fille</a></li>
-                  <li><a href="#">bébé garçon</a></li>
+                <ul className="dropdown-menu">
+                  <Link to="/bebeFille">
+                    <li><a>bébé fille</a></li>
+                  </Link>
+                  <Link to="/bebeGarçon">
+                    <li><a>bébé garçon</a></li>
+                  </Link>
                 </ul>
               </li>
 
@@ -126,23 +182,29 @@ export default class Navbar extends Component {
           </ul>
         </div>
 
-      <li class="nav-item">
-        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">A propos</a>
+      <li className="nav-item">
+        <a className="nav-link" href="#" tabindex="-1" aria-disabled="true">A propos</a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Contact</a>
+      <li className="nav-item">
+        <a className="nav-link" href="#" tabindex="-1" aria-disabled="true">Contact</a>
       </li>
     </ul>
 
   </div>
-  <Link to="/cart" className="ml-auto">
-        <ButtonContainer>
+  <Link to="/login" className="text-decoration-none">
+    <a className="ml-auto nav-link text-muted">
+      Connexion
+    </a>
+  </Link>
+
+  <Link to="/cart" className="ml-auto text-decoration-none">
+        <a className="ml-auto nav-link text-muted">
             <span className="mr-2">
-            <i className="fas fa-cart-plus " />
+            <i className="fas fa-cart-plus" />
             </span>
             mon panier
-        </ButtonContainer>
+        </a>
     </Link>
 
 </nav>

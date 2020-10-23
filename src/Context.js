@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import {detailProduit} from './data';
+import { Link } from 'react-router-dom';
+
 
 const ProduitContext = React.createContext(); 
-
 
 class ProduitProvider extends Component {
 
@@ -10,16 +11,14 @@ class ProduitProvider extends Component {
         super(props);
         this.state = {
           produits:[],
-          categories:[],
-          options:[],
+          users:[],
           detailProduit: detailProduit,
           cart: [],
           modalProduit: detailProduit,
           modalOpen: false,
           cartSubTotal: 0,
           cartTax: 0,
-          cartTotal: 0
-          // selectCatg:0
+          cartTotal: 0,
         }
       }
     
@@ -32,8 +31,7 @@ class ProduitProvider extends Component {
           this.setState({
             isLoading: false,
             produits: responseJson.produits,
-            categories: responseJson.categories,
-            options:responseJson.options
+            users: responseJson.users
           });
         })
           .catch((error) =>{
@@ -174,6 +172,51 @@ class ProduitProvider extends Component {
     })
   }
 
+    // newChangeEmail = (val) =>{
+
+    //   this.setState(()=>{
+    //     return {
+    //       email: val,
+    //     }
+    //   });
+    // }
+
+    // newChangePass = (val) =>{
+
+    //   this.setState(()=>{
+    //     return {
+    //       password: val
+    //     }
+    //   })
+
+    // }
+
+    // login = () => {
+
+    //   let tempUser = [...this.state.users];
+
+    //   const mail = this.state.email;
+    //   // const pass = this.state.pass;
+
+    //   console.log(mail);
+
+    //   // const selectedUser = tempUser.find(item => item.email === val);
+
+    //   // if(selectedUser){
+
+    //   //   if(selectedUser.password === pass){
+    //   //     // <Link to="/" />
+    //   //     console.log("on vas a home page");
+    //   //   }else{
+    //   //     console.log("your password is not correct");
+    //   //   }
+    //   // }else{
+    //   //   console.log("your email doesn't find")
+    //   // }
+    // }
+
+
+
     render() {
         return (
             <ProduitContext.Provider 
@@ -185,7 +228,9 @@ class ProduitProvider extends Component {
                      increment: this.increment,
                      decrement: this.decrement,
                      removeItem: this.removeItem,
-                     clearCart: this.clearCart
+                     clearCart: this.clearCart,
+                    //  newChangeEmail: this.newChangeEmail,
+                    //  newChangePass: this.newChangePass,
                     }}
                 >
                 {this.props.children}
