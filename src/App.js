@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Switch,Route} from 'react-router-dom';
+import axios from 'axios';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from './components/Navbar';
@@ -38,16 +39,46 @@ import BebeGarçon from './components/produit/enfant/bebeGarçon';
 import Login from './components/Login';
 import Register from './components/register';
 import Home from './components/Home';
+import Propos from './components/propos';
+import Contact from './components/Contact';
 
 export default class App extends Component {
 
+  constructor(){
+    super()
+    this.state={
+        user: '',
+    }
+  }
+
+  componentDidMount = () =>{
+
+    let token = localStorage.getItem('token');
+    
+    axios.get(`user/lire/${token}`)
+        .then(res =>{
+          this.setUser(res.data.prenom);
+        },
+        err =>{
+          console.log(err)
+        })
+  };
+
+  setUser = user =>{
+          this.setState({
+          user: user
+        });
+  }
+
   render(){
+
   return (
     <React.Fragment>
-      <Navbar></Navbar>
+      <Navbar user={this.state.user} setUser={this.setUser} />
       <Switch>
         <Route exact path="/" component={ProduitsList}></Route>
-        <Route  path={sessionStorage.getItem("userData") ? "/home/:prenom" : "/home"}  component={Home} ></Route>
+        {/* <Route  path={sessionStorage.getItem("userData") ? "/home/:prenom" : "/home"}  component={Home} ></Route> */}
+        <Route path="/home" component={Home}></Route>
         <Route path="/details" component={Details}></Route>
         <Route path="/cart" component={Cart}></Route>
         <Route path="/robe" component={Robe}></Route>
@@ -77,8 +108,10 @@ export default class App extends Component {
         <Route path="/petitGarçon" component={PetitGarçon}></Route>
         <Route path="/bebeFille" component={BebeFille}></Route>
         <Route path="/bebeGarçon" component={BebeGarçon}></Route>
-        <Route path="/login" component={Login} ></Route>
+        <Route path="/login" component={()=><Login setUser={this.setUser} />} ></Route>
         <Route path="/register" component={Register} ></Route>
+        <Route path="/propos" component={Propos} ></Route>
+        <Route path="/contact" component={Contact} ></Route>
         <Route component={Default}></Route>
       </Switch>
       <Modal/>

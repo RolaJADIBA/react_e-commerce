@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+// import PayPalButton from './payPalButton';
+import Stripe from './Stripe';
 
-export default function CartTotal({ value }) {
+export default function CartTotal({ value, history }) {
 
     const { cartSubTotal, cartTax , cartTotal, clearCart } = value;
+
     return (
         <React.Fragment>
             <div className="container">
@@ -24,9 +27,14 @@ export default function CartTotal({ value }) {
                             <span>total: </span>
                             <strong className="text-muted">$ {cartTotal}</strong>
                         </h5>
+                        <div className="mt-3">
+                            {/* <PayPalButton total={cartTotal} clearCart={clearCart} history={history} /> */}
+                            <Stripe total={cartTotal} />
+                        </div>
                     </div>
                 </div>
             </div>
         </React.Fragment>
     )
 }
+

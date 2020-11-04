@@ -85,7 +85,7 @@ class ProduitProvider extends Component {
       });
     }
 
-    closeModal = id =>{
+    closeModal = () =>{
       this.setState(() => {
         return{ modalOpen : false}
        })
@@ -171,50 +171,6 @@ class ProduitProvider extends Component {
       }
     })
   }
-
-    // newChangeEmail = (val) =>{
-
-    //   this.setState(()=>{
-    //     return {
-    //       email: val,
-    //     }
-    //   });
-    // }
-
-    // newChangePass = (val) =>{
-
-    //   this.setState(()=>{
-    //     return {
-    //       password: val
-    //     }
-    //   })
-
-    // }
-
-    // login = () => {
-
-    //   let tempUser = [...this.state.users];
-
-    //   const mail = this.state.email;
-    //   // const pass = this.state.pass;
-
-    //   console.log(mail);
-
-    //   // const selectedUser = tempUser.find(item => item.email === val);
-
-    //   // if(selectedUser){
-
-    //   //   if(selectedUser.password === pass){
-    //   //     // <Link to="/" />
-    //   //     console.log("on vas a home page");
-    //   //   }else{
-    //   //     console.log("your password is not correct");
-    //   //   }
-    //   // }else{
-    //   //   console.log("your email doesn't find")
-    //   // }
-    // }
-
 
 
     render() {

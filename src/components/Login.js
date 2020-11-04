@@ -5,28 +5,28 @@ import {Redirect, Link} from 'react-router-dom';
 
 export default class Login extends Component {
 
-    constructor(){
-        super();
-        this.state = {
-            login: false
-        }
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    // constructor(){
+    //     super();
+    //     this.state = {
+    //         login: false,
+    //     }
+    //     this.handleSubmit = this.handleSubmit.bind(this);
+    // }
+    state = {}
+
     handleSubmit = e =>{
         e.preventDefault();
 
         const data = {
             email: this.email,
             password: this.password,
-            prenom: this.prenom
         }
         axios.post('http://e_commerce.test/api/login', data)
             .then(res =>{
-                    sessionStorage.setItem('userData', res);
-                    this.setState({
-                        login:true
-                    });
-                    this.props.history.push('/home/' + data.prenom);
+                    localStorage.setItem('token', res.data.token);
+                    this.setState({login:true});
+                    this.props.setUser(res.data.user)
+                    // this.props.history.push('/nav/' + data.prenom);
                 })
             .catch(err => {
                 console.log(err);
@@ -40,21 +40,12 @@ export default class Login extends Component {
             return(<Redirect to={"/home"} />)
         }
 
-        if(sessionStorage.getItem("userData")){
-            return(<Redirect to={"/home"} />)
-        }
-
         return (
             <div className="container">
             <div className="row justify-content-center mt-5">
                 <form className="shadow p-5 mt-5 login" onSubmit={this.handleSubmit}>
                     <img src={"avatar1.png"} className="avatar" alt="avatar"/>
-                    <div className="form-group">
-                        <label htmlFor="prenom">Prenom</label>
-                        <input type="text" className="form-control" placeholder="prenom"
-                          name="prenom" onChange={e => this.prenom = e.target.value} />
-                    </div>
-                    <div className="form-group">
+                    <div className="form-group mt-5">
                         <label htmlFor="email">Email address</label>
                         <input type="email" className="form-control" placeholder="Email"
                           name="email" onChange={e => this.email = e.target.value} />

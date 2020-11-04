@@ -26,8 +26,6 @@ export default class register extends Component {
 
         axios.post('http://e_commerce.test/api/ajout/user',data).then(
             res => {
-                let responseJSON = res;
-                // sessionStorage.setItem('userData', responseJSON);
                 this.setState({gendre:true})                     
             }
         ).catch(
@@ -44,9 +42,6 @@ export default class register extends Component {
             return(<Redirect to={"/login"} />)
         }
 
-        // if(sessionStorage.getItem("userData")){
-        //     return(<Redirect to={"/login"} />)
-        // }
 
         return (
             <div className="container">

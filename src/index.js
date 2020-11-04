@@ -5,6 +5,9 @@ import App from './App';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {ProduitProvider} from './Context';
 import * as serviceWorker from './serviceWorker';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://e_commerce.test/api/';
 
 ReactDOM.render(
   <ProduitProvider>

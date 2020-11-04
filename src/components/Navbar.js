@@ -1,9 +1,41 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
-import {ButtonContainer} from './Button';
 
 export default class Navbar extends Component {
+
+    handleLogOut = () =>{
+      localStorage.clear();
+      this.props.setUser(null);
+  }
+
     render() {
+
+        let buttons;
+
+        if(this.props.user){
+          buttons = (
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hi {this.props.user}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {/* <a class="dropdown-item" href="#">Logout</a> */}
+                <Link to={"/login" }onClick={this.handleLogOut}>
+                  <a className="dropdown-submenu text-danger">Logout</a>
+                 </Link>
+                </div>
+            </li>
+            )
+            }else{
+                buttons = (
+                <ul className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                        <Link to={"/login"} className="nav-link">Connexion/S'inscrire</Link>
+                    </li>
+                </ul>
+                )
+            }
+
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                   <Link to="/home">
@@ -181,22 +213,22 @@ export default class Navbar extends Component {
 
           </ul>
         </div>
+      
+      <Link to="/propos">
+        <li className="nav-item">
+          <a className="nav-link" href="#" tabindex="-1" aria-disabled="true">A propos</a>
+        </li>
+      </Link>
 
-      <li className="nav-item">
-        <a className="nav-link" href="#" tabindex="-1" aria-disabled="true">A propos</a>
-      </li>
-
-      <li className="nav-item">
-        <a className="nav-link" href="#" tabindex="-1" aria-disabled="true">Contact</a>
-      </li>
+      <Link to="/contact">
+        <li className="nav-item">
+          <a className="nav-link" href="#" tabindex="-1" aria-disabled="true">Contact</a>
+        </li>
+      </Link>
     </ul>
-
   </div>
-  <Link to="/login" className="text-decoration-none">
-    <a className="ml-auto nav-link text-muted">
-      Connexion
-    </a>
-  </Link>
+
+  {buttons}
 
   <Link to="/cart" className="ml-auto text-decoration-none">
         <a className="ml-auto nav-link text-muted">
